@@ -42,7 +42,7 @@ def test_auth(client):
     token = response.json['token']
     assert token is not None
 
-def test_auth(client):
+def fail_test_auth(client):
     body = {'email': EMAIL,
             'password': PASSWORD}
     response = client.post('/auth', 
