@@ -28,7 +28,7 @@ def test_health(client):
 def fail_test_health(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert response.json == 'Bad Request'
+    assert response.json != 'Bad Request'
 
 
 def test_auth(client):
@@ -49,6 +49,6 @@ def test_auth(client):
                            data=json.dumps(body),
                            content_type='application/json')
 
-    assert response.status_code == 401
+    assert response.status_code != 401
     token = response.json['token']
     assert token is not None
